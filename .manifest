@@ -4,6 +4,5 @@ abac.rego
 rbac.rego
 permit
 custom/root.rego
-root.rego
-test.rego
 main.rego
+root.rego
