@@ -5,3 +5,4 @@ rbac.rego
 permit
 custom/root.rego
 root.rego
+main.rego
