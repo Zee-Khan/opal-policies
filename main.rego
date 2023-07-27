@@ -1,6 +1,7 @@
 package system
 
-import data.permit.root
+#import data.permit.root
+import data.test
 
 main := {
   "apiVersion": "admission.k8s.io/v1",
@@ -19,7 +20,7 @@ response := {
         "message": reason,
     },
 } {
-    reason = concat(", ", root.deny)
+    reason = concat(", ", test.deny)
     reason != ""
 }
 
