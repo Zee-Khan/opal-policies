@@ -4,7 +4,7 @@ import data.permit.custom
 import data.permit.debug
 import data.permit.policies
 
-default allow := false
+#default allow := false
 
 allow[msg] {
 	policies.allow
@@ -20,6 +20,9 @@ allow[msg] {
         msg := sprintf("custom.allow is true debug")
 }
 
+#deny[msg] {
+#    
+#}
 
 allowing_sources := policies.__allow_sources
 
