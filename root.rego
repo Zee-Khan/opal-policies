@@ -4,10 +4,11 @@ import data.permit.custom
 import data.permit.debug
 import data.permit.policies
 
-default allow := false
+#default allow := false
+default allow := true
 
 allow {
-	policies.allow
+	#policies.allow
         msg := sprintf("policies.allow is true")
 }
 
@@ -16,7 +17,7 @@ allow {
 # The policy will allow if BOTH policies.allow and my_custom_rule are true
 
 allow {
-	custom.allow
+	#custom.allow
         msg := sprintf("custom.allow is true debug")
 }
 

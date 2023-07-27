@@ -1,6 +1,6 @@
 package system
 
-import data.root
+import data.permit.root
 #import data.test
 
 main := {
