@@ -15,8 +15,9 @@ allow[msg] {
 # i.e: assume you added my_custom_rule here
 # The policy will allow if BOTH policies.allow and my_custom_rule are true
 
-allow {
+allow[msg] {
 	custom.allow
+        msg := sprintf("custom.allow is true debug: %v", debug)
 }
 
 
