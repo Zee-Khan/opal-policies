@@ -1,7 +1,7 @@
 package system
 
-#import data.permit.root
-import data.test
+import data.permit.root.root
+#import data.test
 
 main := {
   "apiVersion": "admission.k8s.io/v1",
