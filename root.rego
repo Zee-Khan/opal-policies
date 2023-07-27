@@ -6,10 +6,10 @@ import data.permit.policies
 
 #default allow := false
 
-allow[msg] {
-	policies.allow
-        msg := sprintf("policies.allow is true")
-}
+#allow[msg] {
+#	policies.allow
+#        msg := sprintf("policies.allow is true")
+#}
 
 # NOTE: you can add more conditions here to get an AND effect
 # i.e: assume you added my_custom_rule here
