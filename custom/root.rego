@@ -2,7 +2,8 @@ package permit.custom
 
 # import data.kubernetes.admission
 
-default allow := false
+default allow := true
+#default allow := false
 
 # You can find the official Rego tutorial at:
 # https://www.openpolicyagent.org/docs/latest/policy-language/
