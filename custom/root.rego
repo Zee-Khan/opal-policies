@@ -18,12 +18,12 @@ default allow := false
 #     my_custom_rule
 # }
 
-custom_resource_attributes := {
+custom_resource_attributes = {
     type: "ingress",
     location: "Switzerland"
 }
 
-custom_user_attributes := {
+custom_user_attributes = {
     key: "admin",
     roles: "admin"
 }
