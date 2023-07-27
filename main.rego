@@ -2,9 +2,9 @@ package system
 
 import data.permit.root
 
-deny[msg] {
-    msg := sprintf("root is %v", [root])
-}
+#deny[msg] {
+#    msg := sprintf("root is %v", [root])
+#}
 
 main := {
   "apiVersion": "admission.k8s.io/v1",
@@ -23,7 +23,7 @@ response := {
         "message": reason,
     },
 } {
-    reason = concat(", ", deny)
+    reason = concat(", ", root.deny)
     reason != ""
 }
 
