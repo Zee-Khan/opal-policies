@@ -8,7 +8,7 @@ default allow := false
 
 allow[msg] {
 	policies.allow
-        msg := sprintf("policies.allow is true debug: %v", debug)
+        msg := sprintf("policies.allow is true")
 }
 
 # NOTE: you can add more conditions here to get an AND effect
@@ -17,7 +17,7 @@ allow[msg] {
 
 allow[msg] {
 	custom.allow
-        msg := sprintf("custom.allow is true debug: %v", debug)
+        msg := sprintf("custom.allow is true debug")
 }
 
 
