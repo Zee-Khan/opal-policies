@@ -1,6 +1,6 @@
 package system
 
-import data.permit.root.root
+import data.permit.root
 #import data.test
 
 main := {
@@ -20,7 +20,7 @@ response := {
         "message": reason,
     },
 } {
-    reason = concat(", ", root.deny)
+    reason = concat(", ", deny)
     reason != ""
 }
 
