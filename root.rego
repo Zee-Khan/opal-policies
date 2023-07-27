@@ -18,6 +18,31 @@ allow {
 	custom.allow
 }
 
+main := {
+  "apiVersion": "admission.k8s.io/v1",
+  "kind": "AdmissionReview",
+  "response": response,
+}
+
+default uid := ""
+
+uid := input.request.uid
+
+response := {
+    "allowed": false,
+    "uid": uid,
+    "status": {
+        "message": reason,
+    },
+} {
+    reason = concat(", ", "failed test")
+    reason != ""
+}
+
+else := {"allowed": true, "uid": uid}
+
+
+
 allowing_sources := policies.__allow_sources
 
 default __data_use_debugger := true
