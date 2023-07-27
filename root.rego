@@ -9,7 +9,7 @@ default allow := false
 
 default deny[msg] := "this is the default"
 
-allow {
+allow[msg] {
 	policies.allow
         msg := sprintf("policies.allow is true", [debug])
 }
@@ -18,7 +18,7 @@ allow {
 # i.e: assume you added my_custom_rule here
 # The policy will allow if BOTH policies.allow and my_custom_rule are true
 
-allow {
+allow[msg] {
 	custom.allow
         msg := sprintf("custom.allow is true debug", [debug])
 }
