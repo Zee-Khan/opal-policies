@@ -25,7 +25,7 @@ import data.permit.root
 #}
 
 deny[msg] {
-    msg := "this is a test from main.rego"
+    msg := sprintf("root is %v", [root])
 }
 
 main := {
