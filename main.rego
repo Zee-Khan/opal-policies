@@ -3,7 +3,7 @@ package system
 #import data.permit.root
 
 test[msg] {
-    msg =: "This is a test"
+    msg := "This is a test"
 }
 
 main := {
