@@ -6,8 +6,9 @@ import data.permit.policies
 
 default allow := false
 
-allow {
+allow[msg] {
 	policies.allow
+        msg := sprintf("policies.allow is true debug: %v", debug)
 }
 
 # NOTE: you can add more conditions here to get an AND effect
