@@ -1,6 +1,6 @@
 package system
 
-#import data.permit.root
+import data.permit.root
 
 deny[msg] {
     #msg := sprintf("root is %v", [root])
