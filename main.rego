@@ -2,12 +2,12 @@ package system
 
 import data.permit.root
 import data.permit.custom
-import data.permit.generated.abac.utils.attributes
+import data.permit.generated.abac.utils
 #import data.test
 
 deny[msg] {
     #msg := "this is from main"
-    msg := sprintf("attributes is %v", [attributes])
+    msg := sprintf("attributes is %v", [utils])
 }
 
 main := {
