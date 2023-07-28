@@ -18,14 +18,14 @@ default allow := false
 #     my_custom_rule
 # }
 
-custom_resource_attributes = {
-    "key": "ingress",
-    "type": "ingress",
-    "location": "Switzerland"
-}
+#custom_resource_attributes = {
+#    "key": "ingress",
+#    "type": "ingress",
+#    "location": "Switzerland"
+#}
 
-custom_user_attributes = {
-    "key": "admin",
-    "roles": "admin"
-}
+#custom_user_attributes = {
+#    "key": "admin",
+#    "roles": "admin"
+#}
 
