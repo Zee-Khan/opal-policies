@@ -18,7 +18,7 @@ default allow := false
 #     my_custom_rule
 # }
 
-custom_resource_attributes = {i
+custom_resource_attributes = {
     "key": "ingress",
     "type": "ingress",
     "location": "Switzerland"
