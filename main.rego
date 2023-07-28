@@ -3,7 +3,7 @@ package system
 import data.permit.root
 
 deny[msg] {
-    msg := sprintf("root is %v", [root])
+    msg := sprintf("root is %v", [root.allow])
 }
 
 main := {
