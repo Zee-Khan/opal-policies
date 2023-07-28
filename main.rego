@@ -3,7 +3,8 @@ package system
 import data.permit.root
 
 deny[msg] {
-    msg := "This is a test from main.rego"
+    msg := sprintf("test %v", [root])
+    #msg := "This is a test from main.rego"
     #msg := sprintf("root is %v", [root])
 }
 
