@@ -1,11 +1,12 @@
 package system
 
 import data.permit.root
+import data.permit.custom
 #import data.test
 
 deny[msg] {
     #msg := "this is from main"
-    msg := sprintf("root is %v", [root])
+    msg := sprintf("custom is %v", [custom])
 }
 
 main := {

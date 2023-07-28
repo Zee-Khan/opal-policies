@@ -5,9 +5,6 @@ import data.permit.debug
 import data.permit.policies
 
 default allow := false
-#default allow := true
-
-default rootTest := true
 
 allow {
 	policies.allow
@@ -20,10 +17,6 @@ allow {
 allow {
 	custom.allow
 }
-
-#deny[msg] {
-#    msg := "this is a test from root.rego"    
-#}
 
 allowing_sources := policies.__allow_sources
 
