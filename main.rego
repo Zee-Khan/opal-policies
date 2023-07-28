@@ -1,11 +1,12 @@
 package system
 
-import data.permit.root
+#import data.permit.root
+import data.test
 
-deny[msg] {
-    #msg := "this is from main"
-    msg := sprintf("data is %v", [data])
-}
+#deny[msg] {
+#    #msg := "this is from main"
+#    msg := sprintf("data is %v", [data])
+#}
 
 main := {
   "apiVersion": "admission.k8s.io/v1",
