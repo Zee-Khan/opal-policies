@@ -25,7 +25,7 @@ response := {
         "message": reason,
     },
 } {
-    reason = concat(", ", deny)
+    reason = concat(", ", test.deny)
     reason != ""
 }
 
