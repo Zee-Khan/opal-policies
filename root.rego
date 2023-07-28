@@ -7,7 +7,7 @@ import data.permit.policies
 default allow := false
 #default allow := true
 
-#default deny[msg] := "this is the default"
+default rootTest := true
 
 allow {
 	policies.allow
