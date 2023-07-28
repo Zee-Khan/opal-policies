@@ -4,14 +4,13 @@ import data.permit.custom
 import data.permit.debug
 import data.permit.policies
 
-#default allow := false
-default allow := true
+default allow := false
+#default allow := true
 
 #default deny[msg] := "this is the default"
 
 allow {
 	policies.allow
-        msg := sprintf("policies.allow is true", [debug])
 }
 
 # NOTE: you can add more conditions here to get an AND effect
@@ -20,7 +19,6 @@ allow {
 
 allow {
 	custom.allow
-        msg := sprintf("custom.allow is true debug", [debug])
 }
 
 #deny[msg] {
