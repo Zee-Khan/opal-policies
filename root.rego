@@ -4,12 +4,12 @@ import data.permit.custom
 import data.permit.debug
 import data.permit.policies
 
-default allow := false
-#default allow := true
+#default allow := false
+default allow := true
 
-default deny[msg] := "this is the default"
+#default deny[msg] := "this is the default"
 
-allow[msg] {
+allow {
 	policies.allow
         msg := sprintf("policies.allow is true", [debug])
 }
@@ -18,14 +18,14 @@ allow[msg] {
 # i.e: assume you added my_custom_rule here
 # The policy will allow if BOTH policies.allow and my_custom_rule are true
 
-allow[msg] {
+allow {
 	custom.allow
         msg := sprintf("custom.allow is true debug", [debug])
 }
 
-deny[msg] {
-    msg := "this is a test from root.rego"    
-}
+#deny[msg] {
+#    msg := "this is a test from root.rego"    
+#}
 
 allowing_sources := policies.__allow_sources
 

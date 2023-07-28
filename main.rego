@@ -1,7 +1,7 @@
 package system
 
-#import data.permit.root
-import data.test
+import data.permit.root
+#import data.test
 
 #deny[msg] {
 #    #msg := "this is from main"
@@ -25,7 +25,7 @@ response := {
         "message": reason,
     },
 } {
-    reason = concat(", ", test.deny)
+    reason = concat(", ", root.allow)
     reason != ""
 }
 
