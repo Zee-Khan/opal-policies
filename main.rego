@@ -3,9 +3,7 @@ package system
 import data.permit.root
 
 deny[msg] {
-    msg := sprintf("test %v", [root])
-    #msg := "This is a test from main.rego"
-    #msg := sprintf("root is %v", [root])
+    msg := sprintf("root is %v", [root])
 }
 
 main := {
@@ -30,4 +28,3 @@ response := {
 }
 
 else := {"allowed": true, "uid": uid}
-
