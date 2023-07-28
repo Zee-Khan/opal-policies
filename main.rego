@@ -4,7 +4,7 @@ import data.permit.root
 
 deny[msg] {
     #msg := "this is from main"
-    msg := sprintf("input is %v", [input])
+    msg := sprintf("data is %v", [data])
 }
 
 main := {
