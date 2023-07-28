@@ -19,13 +19,13 @@ default allow := false
 # }
 
 custom_resource_attributes = {i
-    key: "ingress",
-    type: "ingress",
-    location: "Switzerland"
+    "key": "ingress",
+    "type": "ingress",
+    "location": "Switzerland"
 }
 
 custom_user_attributes = {
-    key: "admin",
-    roles: "admin"
+    "key": "admin",
+    "roles": "admin"
 }
 
