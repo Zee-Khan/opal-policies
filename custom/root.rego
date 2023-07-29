@@ -20,6 +20,7 @@ default allow := false
 
 custom_resource_attributes = {
     "type": "ingress",
+    "key": "Location_is_Switzerland",
     "attributes": {
         "type": "ingress",
         "location": "Switzerland"
