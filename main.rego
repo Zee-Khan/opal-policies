@@ -7,7 +7,7 @@ import data.permit.generated.abac.utils
 
 deny[msg] {
     #msg := "this is from main"
-    msg := sprintf("attributes is %v", [utils])
+    msg := sprintf("attributes is %v", [root])
 }
 
 main := {
