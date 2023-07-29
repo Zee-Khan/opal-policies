@@ -21,10 +21,10 @@ default allow := false
 custom_resource_attributes = {
     "type": "ingress",
     "location": "Switzerland",
-    "attributes": {
-        "type": "ingress",
-        "location": "Switzerland"
-    }
+    #"attributes": {
+    #    "type": "ingress",
+    #    "location": "Switzerland"
+    #}
 }
 
 custom_user_attributes = {
