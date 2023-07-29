@@ -108,9 +108,9 @@ __user_attributes = object.union_n([
 ])
 
 __resource_attributes = object.union_n([
-	__generated_resource_attributes, __stored_resource_attributes,
+	#__generated_resource_attributes, __stored_resource_attributes,
 	__custom_resource_attributes,
-	__input_resource_attributes,
+	#__input_resource_attributes,
 ])
 
 __tenant_attributes = object.union_n([
