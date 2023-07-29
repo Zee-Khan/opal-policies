@@ -91,7 +91,8 @@ __custom_user_attributes = data.permit.custom.custom_user_attributes
 
 __custom_tenant_attributes = data.permit.custom.custom_tenant_attributes
 
-__custom_resource_attributes = data.permit.custom.custom_resource_attributes
+__custom_resource_attributes = input
+#__custom_resource_attributes = data.permit.custom.custom_resource_attributes
 
 __custom_context_attributes = data.permit.custom.custom_context_attributes
 
@@ -108,9 +109,9 @@ __user_attributes = object.union_n([
 ])
 
 __resource_attributes = object.union_n([
-	#__generated_resource_attributes, __stored_resource_attributes,
+	__generated_resource_attributes, __stored_resource_attributes,
 	__custom_resource_attributes,
-	#__input_resource_attributes,
+	__input_resource_attributes,
 ])
 
 __tenant_attributes = object.union_n([
