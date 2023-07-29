@@ -110,7 +110,7 @@ __user_attributes = object.union_n([
 __resource_attributes = object.union_n([
 	__generated_resource_attributes, __stored_resource_attributes,
 	__custom_resource_attributes,
-	#__input_resource_attributes,
+	__input_resource_attributes,
 ])
 
 __tenant_attributes = object.union_n([
@@ -125,7 +125,8 @@ __context_attributes = object.union(
 
 attributes = {
 	"user": __user_attributes,
-	"resource": __resource_attributes,
+	"resource": __custom_resource_attributes
+	#"resource": __resource_attributes,
 	#"tenant": __tenant_attributes,
 	#"context": __context_attributes,
 	# TODO: When we want to add data from system, use these
