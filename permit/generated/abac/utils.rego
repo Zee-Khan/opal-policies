@@ -2,6 +2,9 @@ package permit.generated.abac.utils
 
 import future.keywords.in
 
+input.action = input.request.object.operation
+input.resource.type = input.request.kind.kind
+
 # not undefined if object 'x' has a key 'k'
 has_key(x, k) {
 	_ := x[k]
