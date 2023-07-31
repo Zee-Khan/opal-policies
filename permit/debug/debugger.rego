@@ -13,15 +13,21 @@ import data.permit.utils.abac as abac_utils
 
 default __debug_tenant = null
 
-__debug_tenant = input.resource.tenant {
-	utils.has_key(data.tenants, input.resource.tenant)
+__debug_tenant = "default" {
+	utils.has_key(data.tenants, "default")
 }
+#__debug_tenant = input.resource.tenant {
+#	utils.has_key(data.tenants, input.resource.tenant)
+#}
 
 default __debug_action := null
 
-__debug_action = input.action {
-	utils.has_key(input, "action")
+__debug_action = input.request.metadata.operation {
+	utils.has_key(input.request.metadata, "operation")
 }
+#__debug_action = input.action {
+#	utils.has_key(input, "action")
+#}
 
 default __debug_user := null
 
@@ -31,10 +37,11 @@ __debug_user_attributes = abac_utils.attributes.user
 
 default __debug_user_synced := false
 
-__debug_user_synced = utils.has_key(data.users, input.user.key)
+__debug_user_synced = utils.has_key(data.users, input.request.metadata.userInfo.username)
+#__debug_user_synced = utils.has_key(data.users, input.user.key)
 
 __debug_user = object.union(
-	input.user,
+	input.request.metadata.userInfo,
 	{
 		"synced": __debug_user_synced,
 		"attributes": __debug_user_attributes,
@@ -44,7 +51,7 @@ __debug_user = object.union(
 default __debug_resource := null
 
 __debug_resource = {
-	"type": input.resource.type,
+	"type": input.request.kind.kind,
 	"attributes": abac_utils.attributes.resource,
 }
 

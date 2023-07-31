@@ -18,15 +18,15 @@ default allow := false
 #     my_custom_rule
 # }
 
-custom_resource_attributes = {
-    "type": "ingress",
-    "location": "Switzerland"
+#custom_resource_attributes = {
+#    "type": "ingress",
+#    "location": "Switzerland"
     #"key": "Location_is_Switzerland",
     #"attributes": {
     #    "type": "ingress",
     #    "location": "Switzerland"
     #}
-}
+#}
 
 custom_user_attributes = {
     "key": "admin",

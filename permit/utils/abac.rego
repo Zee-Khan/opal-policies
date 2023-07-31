@@ -8,18 +8,21 @@ __generated_user_attributes = {
 	"tenants": rbac.user_tenants,
 }
 
-__generated_resource_attributes = {"type": input.resource.type}
+__generated_resource_attributes = {"type": input.request.kind.kind}
+#__generated_resource_attributes = {"type": input.resource.type}
 
 default __stored_user_attributes = {}
 
-__stored_user_attributes = data.users[input.user.key].attributes
+__stored_user_attributes = data.users[input.request.metadata.userInfo.username].attributes
+#__stored_user_attributes = data.users[input.user.key].attributes
 
 # Stored tenant attributes only work if the input user is a member
 default __stored_tenant_attributes = {}
 
 __stored_tenant_attributes = result {
 	rbac.__user_in_tenant
-	result := data.tenants[input.resource.tenant].attributes
+	result := data.tenants["default"].attributes
+	#result := data.tenants[input.resource.tenant].attributes
 }
 
 default __input_user_attributes = {}
@@ -40,7 +43,11 @@ default __custom_context_attributes = {}
 
 __input_user_attributes = input.user.attributes
 
-__input_resource_attributes = input.resource.attributes
+__input_resource_attributes = {
+    "type": input.request.kind.kind,
+    "location": input.request.metadata.annotations.labels.location
+}
+#__input_resource_attributes = input.resource.attributes
 
 __input_tenant_attributes = input.tenant.attributes
 

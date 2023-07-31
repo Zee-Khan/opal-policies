@@ -20,7 +20,8 @@ rebac_roles := rebac_roles_result.roles
 rebac_roles_debugger := rebac_roles_result.debugger
 
 scoped_users_obj := result {
-	roles_path = sprintf("/%s/roleAssignments/%s", [input.user.key, input.resource.tenant])
+	roles_path = sprintf("/%s/roleAssignments/%s", [input.request.metadata.userInfo.username, "default"])
+	#roles_path = sprintf("/%s/roleAssignments/%s", [input.user.key, input.resource.tenant])
 	result := json.patch(data.users, [{"op": "add", "path": roles_path, "value": rebac_roles}])
 }
 
@@ -28,15 +29,18 @@ default allow := false
 
 allow {
 	rbac.allow with data.users as scoped_users_obj
-		with data.roles_resource as input.resource.type
+		with data.roles_resource as input.request.kind.kind
+		#with data.roles_resource as input.resource.type
 }
 
 grants[grant] {
-	rbac.grants[grant] with data.users as scoped_users_obj with data.roles_resource as input.resource.type
+	rbac.grants[grant] with data.users as scoped_users_obj with data.roles_resource as input.request.kind.kind
+	#rbac.grants[grant] with data.users as scoped_users_obj with data.roles_resource as input.resource.type
 }
 
 allowing_roles[role_key] {
-	rbac.allowing_roles[role_key] with data.users as scoped_users_obj with data.roles_resource as input.resource.type
+	rbac.allowing_roles[role_key] with data.users as scoped_users_obj with data.roles_resource as input.request.kind.kind
+	#rbac.allowing_roles[role_key] with data.users as scoped_users_obj with data.roles_resource as input.resource.type
 }
 
 object_keys(obj) := result {
