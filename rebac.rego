@@ -20,7 +20,7 @@ rebac_roles := rebac_roles_result.roles
 rebac_roles_debugger := rebac_roles_result.debugger
 
 scoped_users_obj := result {
-	roles_path = sprintf("/%s/roleAssignments/%s", [input.request.metadata.userInfo.username, "default"])
+	roles_path = sprintf("/%s/roleAssignments/%s", ["zohaib.khan@swisscom.com", "default"])
 	#roles_path = sprintf("/%s/roleAssignments/%s", [input.user.key, input.resource.tenant])
 	result := json.patch(data.users, [{"op": "add", "path": roles_path, "value": rebac_roles}])
 }

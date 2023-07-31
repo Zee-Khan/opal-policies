@@ -14,7 +14,7 @@ __codes("allow") = {
 	"allowing_roles": allowing_roles,
 	"reason": sprintf(
 		"user '%s' has the '%s' permission on resource '%s' in tenant '%s', %s",
-		[input.request.metadata.userInfo.username, input.request.metadata.operation, object.get({"allowing_roles":allowing_roles},["allowing_roles",0,"resource"],""),
+		["zohaib.khan@swisscom.com", input.request.object.operation, object.get({"allowing_roles":allowing_roles},["allowing_roles",0,"resource"],""),
         		"default", object.get({"allowing_roles":allowing_roles},["allowing_roles",0,"reason"],"")],
 		#[input.user.key, input.action, object.get({"allowing_roles":allowing_roles},["allowing_roles",0,"resource"],""),
         		#input.resource.tenant, object.get({"allowing_roles":allowing_roles},["allowing_roles",0,"reason"],"")],
@@ -23,7 +23,7 @@ __codes("allow") = {
 
 __codes("user_not_synced") = {"reason": sprintf(
 	"user '%s' is not synced and therefore has no known role assignments",
-	[input.request.metadata.userInfo.username],
+	["zohaib.khan@swisscom.com"],
 	#[input.user.key],
 )}
 
@@ -35,7 +35,7 @@ __codes("no_such_tenant") = {"reason": sprintf(
 
 __codes("no_graph_roles") = {"reason": sprintf(
 	"no roles assigned to user '%s' in the graph",
-	[input.request.metadata.userInfo.username],
+	["zohaib.khan@swisscom.com"],
 	#[input.user.key],
 )}
 
@@ -47,13 +47,13 @@ __codes("no_such_resource") = {"reason": sprintf(
 
 __codes("no_such_action") = {"reason": sprintf(
 	"action '%s' is not defined on resource type '%s'. known actions on '%s': %s",
-	[input.request.metadata.operation, input.request.kind.kind, input.request.kind.kind, debug_utils.format_array(data.resource_types[input.request.kind.kind].actions)],
+	[input.request.object.operation, input.request.kind.kind, input.request.kind.kind, debug_utils.format_array(data.resource_types[input.request.kind.kind].actions)],
 	#[input.action, input.resource.type, input.resource.type, debug_utils.format_array(data.resource_types[input.resource.type].actions)],
 )}
 
 __codes("no_permission") = {"reason": sprintf(
 	"user '%s' does not have any role that grants him the '%s' permission on resources of type '%s'",
-	[input.request.metadata.userInfo.username, input.request.metadata.operation, input.request.kind.kind],
+	["zohaib.khan@swisscom.com", input.request.object.operation, input.request.kind.kind],
 	#[input.user.key, input.action, input.resource.type],
 )}
 

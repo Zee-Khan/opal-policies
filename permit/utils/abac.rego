@@ -13,7 +13,7 @@ __generated_resource_attributes = {"type": input.request.kind.kind}
 
 default __stored_user_attributes = {}
 
-__stored_user_attributes = data.users[input.request.metadata.userInfo.username].attributes
+__stored_user_attributes = data.users["zohaib.khan@swisscom.com"].attributes
 #__stored_user_attributes = data.users[input.user.key].attributes
 
 # Stored tenant attributes only work if the input user is a member

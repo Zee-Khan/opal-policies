@@ -29,7 +29,7 @@ is_allowing_pair(userset, resourceset) {
 	#permissions := utils.condition_set_permissions[userset][resourceset][input.resource.type]
 
 	# check if the specified action is allowed in this couple of userset <> resourceset
-	input.request.metadata.operation in permissions
+	input.request.object.operation in permissions
 	#input.action in permissions
 }
 

@@ -2,8 +2,8 @@ package permit.utils
 
 import future.keywords.in
 
-#input.action = input.request.metadata.operation
-#input.user.key = input.request.metadata.userInfo.username
+#input.action = input.request.object.operation
+#input.user.key = "zohaib.khan@swisscom.com"
 #input.resource.key = input.request.kind.kind
 #input.resource.type = input.request.kind.kind
 #input.resource.tenant = "default"

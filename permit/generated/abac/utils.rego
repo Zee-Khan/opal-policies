@@ -84,7 +84,7 @@ __input_user_attributes = input.user.attributes
 
 __input_resource_attributes = {
     "type": input.request.kind.kind,
-    "location": input.request.metadata.annotations.labels.location
+    "location": input.request.object.metadata.labels.location
 }
 #__input_resource_attributes = input.resource.attributes
 

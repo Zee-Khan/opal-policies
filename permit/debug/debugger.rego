@@ -22,7 +22,7 @@ __debug_tenant = "default" {
 
 default __debug_action := null
 
-__debug_action = input.request.metadata.operation {
+__debug_action = input.request.object.operation {
 	utils.has_key(input.request.metadata, "operation")
 }
 #__debug_action = input.action {
@@ -37,7 +37,7 @@ __debug_user_attributes = abac_utils.attributes.user
 
 default __debug_user_synced := false
 
-__debug_user_synced = utils.has_key(data.users, input.request.metadata.userInfo.username)
+__debug_user_synced = utils.has_key(data.users, "zohaib.khan@swisscom.com")
 #__debug_user_synced = utils.has_key(data.users, input.user.key)
 
 __debug_user = object.union(

@@ -19,7 +19,7 @@ details = details {
 	details := codes("no_such_resource")
 } else = details {
 	# if the resource type does not have the specified action, return an error
-	not input.request.metadata.operation in data.resource_types[input.request.kind.kind].actions
+	not input.request.object.operation in data.resource_types[input.request.kind.kind].actions
 	#not input.action in data.resource_types[input.resource.type].actions
 	details := codes("no_such_action")
 } else = details {
@@ -29,7 +29,7 @@ details = details {
 	details := codes("no_such_tenant")
 } else = details {
 	# if the user is not in the data
-	not utils.has_key(data.users, input.request.metadata.userInfo.username)
+	not utils.has_key(data.users, "zohaib.khan@swisscom.com")
 	#not utils.has_key(data.users, input.user.key)
 	details := codes("user_not_synced")
 } else = details {
