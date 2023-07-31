@@ -130,7 +130,8 @@ __context_attributes = object.union(
 
 attributes = {
 	"user": __user_attributes,
-	"resource": __resource_attributes
+	"resource": __input_resource_attributes
+	#"resource": __resource_attributes
 	#"resource": input
 	#"tenant": __tenant_attributes,
 	#"context": __context_attributes,
