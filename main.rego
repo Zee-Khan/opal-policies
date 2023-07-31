@@ -1,15 +1,15 @@
 package system
 
 import data.permit.root
-import data.permit.custom
-import data.permit.generated.abac.utils
-import data.permit.generated.conditionset
+#import data.permit.custom
+#import data.permit.generated.abac.utils
+#import data.permit.generated.conditionset
 #import data.test
 
 deny[msg] {
     #msg := "this is from main"
     root.allow == false
-    msg := sprintf("root.allow is %v", [root.allow])
+    msg := sprintf("data is %v", [data])
     #msg := sprintf("userset__5f_5fautogen_5fadmin is %v, resourceset__5f_5fautogen_5fNamespace is %v, resourceset_namespace_5flocation_5fis_5fswitzerland is %v", [conditionset.userset__5f_5fautogen_5fadmin, conditionset.resourceset__5f_5fautogen_5fNamespace, conditionset.resourceset_namespace_5flocation_5fis_5fswitzerland])
 }
 
