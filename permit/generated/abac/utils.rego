@@ -63,8 +63,7 @@ default __stored_tenant_attributes = {}
 
 __stored_tenant_attributes = result {
 	__user_in_tenant
-	result := data.tenants["default"].attributes
-	#result := data.tenants[input.resource.tenant].attributes
+	result := data.tenants[input.resource.tenant].attributes
 }
 
 default __input_user_attributes = {}
