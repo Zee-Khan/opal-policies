@@ -40,11 +40,11 @@ default __custom_context_attributes = {}
 
 __input_user_attributes = input.user.attributes
 
-__input_resource_attributes = {
-    "type": input.request.kind.kind,
-    "location": input.request.object.metadata.labels.location
-}
-#__input_resource_attributes = input.resource.attributes
+# __input_resource_attributes = {
+#     "type": input.request.kind.kind,
+#     "location": input.request.object.metadata.labels.location
+# }
+__input_resource_attributes = input.resource.attributes
 
 __input_tenant_attributes = input.tenant.attributes
 
@@ -84,8 +84,8 @@ __context_attributes = object.union(
 attributes = {
 	"user": __user_attributes,
 	"resource": __resource_attributes,
-	# "tenant": __tenant_attributes,
-	# "context": __context_attributes,
+	"tenant": __tenant_attributes,
+	"context": __context_attributes,
 	# TODO: When we want to add data from system, use these
 	#	"resource": object.union(__input_resource_attributes, data.resource[input.resource.id].attributes),
 	#	"environment": object.union(__input_context_environment, data.environment.attributes),
