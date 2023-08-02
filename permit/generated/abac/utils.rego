@@ -84,7 +84,8 @@ default __custom_context_attributes = {}
 
 __input_user_attributes = {
     "key": "admin",
-    "roles": ["admin"]
+    "roles": ["admin"],
+	"tenant": ["default"]
 }
 
 #__input_user_attributes =  input.user.attributes
