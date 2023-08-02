@@ -2,6 +2,9 @@ package permit.generated.abac.utils
 
 import future.keywords.in
 
+# input.action = input.request.object.operation
+# input.resource.type = input.request.kind.kind
+
 # not undefined if object 'x' has a key 'k'
 has_key(x, k) {
 	_ := x[k]
@@ -60,7 +63,8 @@ default __stored_tenant_attributes = {}
 
 __stored_tenant_attributes = result {
 	__user_in_tenant
-	result := data.tenants[input.resource.tenant].attributes
+	result := data.tenants["default"].attributes
+	#result := data.tenants[input.resource.tenant].attributes
 }
 
 default __input_user_attributes = {}
@@ -81,7 +85,11 @@ default __custom_context_attributes = {}
 
 __input_user_attributes = input.user.attributes
 
-__input_resource_attributes = input.resource.attributes
+__input_resource_attributes = {
+    "type": input.request.kind.kind,
+    "location": input.request.object.metadata.labels.location
+}
+#__input_resource_attributes = input.resource.attributes
 
 __input_tenant_attributes = input.tenant.attributes
 
@@ -91,8 +99,7 @@ __custom_user_attributes = data.permit.custom.custom_user_attributes
 
 __custom_tenant_attributes = data.permit.custom.custom_tenant_attributes
 
-__custom_resource_attributes = input
-#__custom_resource_attributes = data.permit.custom.custom_resource_attributes
+__custom_resource_attributes = data.permit.custom.custom_resource_attributes
 
 __custom_context_attributes = data.permit.custom.custom_context_attributes
 
@@ -126,7 +133,9 @@ __context_attributes = object.union(
 
 attributes = {
 	"user": __user_attributes,
-	"resource": __resource_attributes
+	"resource": __input_resource_attributes
+	#"resource": __resource_attributes
+	#"resource": input
 	#"tenant": __tenant_attributes,
 	#"context": __context_attributes,
 	# TODO: When we want to add data from system, use these

@@ -4,9 +4,9 @@ import future.keywords.in
 
 import data.permit.generated.abac.utils.attributes
 
-default resourceset_Location_5fis_5fSwitzerland = false
+default resourceset_namespace_5flocation_5fis_5fswitzerland = false
 
-resourceset_Location_5fis_5fSwitzerland {
+resourceset_namespace_5flocation_5fis_5fswitzerland {
 	attributes.resource.location == "Switzerland"
-	attributes.resource.type == "ingress"
+	attributes.resource.type == "Namespace"
 }
