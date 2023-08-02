@@ -11,6 +11,7 @@ __rebac_data := {
 
 default rebac_roles := []
 
+default cache_rebuild := false
 
 rebac_roles_result := permit_rebac_roles(__rebac_data, input)
 
