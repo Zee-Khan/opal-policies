@@ -149,4 +149,4 @@ attributes = {
 
 }
 
-condition_set_permissions := data.condition_set_rules
+condition_set_permissions := data.conditionset_rules
