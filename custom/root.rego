@@ -23,7 +23,7 @@ default allow := false
 #     "location": input.request.object.labels.location
 # }
 
-custom_resource_attributes = {
-    "type": "type",
+custom_resource_attributes := {
+    "type": input.request.kind.kind,
     "location": "location"
 }
