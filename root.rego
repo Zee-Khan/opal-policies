@@ -26,6 +26,7 @@ __data_use_debugger = data.use_debugger
 
 default __input_use_debugger := null
 
+#__input_use_debugger = true
 __input_use_debugger = input.use_debugger
 
 default debugger_activated := false

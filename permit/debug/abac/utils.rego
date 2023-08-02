@@ -56,7 +56,8 @@ format_reason_msg(allowing_rule) = msg {
 	resourceset := allowing_rule.resourceset
 	msg := sprintf(
 		"user '%s' matched '%s' userset conditions, the given resource matched the '%s' resourceset conditions, users matching '%s' userset conditions has the '%s' permission on resources of type '%s' matching '%s' resourceset conditions",
-		[input.user.key, userset, resourceset, userset, input.action, input.resource.type, resourceset],
+		["zohaib.khan@swisscom.com", userset, resourceset, userset, input.request.object.operation, input.request.kind.kind, resourceset],
+		#[input.user.key, userset, resourceset, userset, input.action, input.resource.type, resourceset],
 	)
 }
 
@@ -65,7 +66,8 @@ format_reason_msg(allowing_rule) = msg {
 	resourceset := allowing_rule.resourceset
 	msg := sprintf(
 		"user '%s' has the role '%s' in tenant '%s', the given resource matched the '%s' resourceset conditions, role '%s' has the '%s' permission on resources of type '%s' matching '%s' resourceset conditions",
-		[input.user.key, role, input.resource.tenant, resourceset, role, input.action, input.resource.type, resourceset],
+		["zohaib.khan@swisscom.com", role, "default", resourceset, role, input.request.object.operation, input.request.kind.kind, resourceset],
+		#[input.user.key, role, input.resource.tenant, resourceset, role, input.action, input.resource.type, resourceset],
 	)
 }
 
@@ -74,6 +76,7 @@ format_reason_msg(allowing_rule) = msg {
 	resource_type := allowing_rule.resource_type
 	msg := sprintf(
 		"user '%s' matched '%s' userset conditions, users matching '%s' userset conditions has the '%s' permission on resources of type '%s'",
-		[input.user.key, userset, userset, input.action, input.resource.type],
+		["zohaib.khan@swisscom.com", userset, userset, input.request.object.operation, input.request.kind.kind],
+		#[input.user.key, userset, userset, input.action, input.resource.type],
 	)
 }

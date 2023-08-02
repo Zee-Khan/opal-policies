@@ -25,10 +25,12 @@ allowing_rules[pair] {
 
 is_allowing_pair(userset, resourceset) {
 	# get the permissions in this couple of userset <> resourceset
-	permissions := utils.condition_set_permissions[userset][resourceset][input.resource.type]
+	permissions := utils.condition_set_permissions[userset][resourceset][input.request.kind.kind]
+	#permissions := utils.condition_set_permissions[userset][resourceset][input.resource.type]
 
 	# check if the specified action is allowed in this couple of userset <> resourceset
-	input.action in permissions
+	input.request.object.operation in permissions
+	#input.action in permissions
 }
 
 decode_condition_set_key(key) = value {
