@@ -18,7 +18,12 @@ default allow := false
 #     my_custom_rule
 # }
 
+# custom_resource_attributes = {
+#     "type": input.request.kind.kind,
+#     "location": input.request.object.labels.location
+# }
+
 custom_resource_attributes = {
-    "type": input.request.kind.kind,
-    "location": input.request.object.labels.location
+    "type": "type",
+    "location": "location"
 }
