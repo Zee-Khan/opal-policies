@@ -8,21 +8,18 @@ __generated_user_attributes = {
 	"tenants": rbac.user_tenants,
 }
 
-__generated_resource_attributes = {"type": input.request.kind.kind}
-#__generated_resource_attributes = {"type": input.resource.type}
+__generated_resource_attributes = {"type": input.resource.type}
 
 default __stored_user_attributes = {}
 
-__stored_user_attributes = data.users["zohaib.khan@swisscom.com"].attributes
-#__stored_user_attributes = data.users[input.user.key].attributes
+__stored_user_attributes = data.users[input.user.key].attributes
 
 # Stored tenant attributes only work if the input user is a member
 default __stored_tenant_attributes = {}
 
 __stored_tenant_attributes = result {
 	rbac.__user_in_tenant
-	result := data.tenants["default"].attributes
-	#result := data.tenants[input.resource.tenant].attributes
+	result := data.tenants[input.resource.tenant].attributes
 }
 
 default __input_user_attributes = {}
@@ -86,10 +83,9 @@ __context_attributes = object.union(
 
 attributes = {
 	"user": __user_attributes,
-	"resource": __input_resource_attributes
-	#"resource": __resource_attributes,
-	#"tenant": __tenant_attributes,
-	#"context": __context_attributes,
+	"resource": __resource_attributes,
+	# "tenant": __tenant_attributes,
+	# "context": __context_attributes,
 	# TODO: When we want to add data from system, use these
 	#	"resource": object.union(__input_resource_attributes, data.resource[input.resource.id].attributes),
 	#	"environment": object.union(__input_context_environment, data.environment.attributes),

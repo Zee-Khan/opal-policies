@@ -9,8 +9,6 @@ allow = rbac.allow
 allowing_roles = debug_utils.to_array(rbac.allowing_roles)
 
 tenants_with_roles = [tenant |
-	count(data.users["zohaib.khan@swisscom.com"].roleAssignments[tenant]) > 0
-	role_assignments := data.users["zohaib.khan@swisscom.com"].roleAssignments[tenant]
-	#count(data.users[input.user.key].roleAssignments[tenant]) > 0
-	#role_assignments := data.users[input.user.key].roleAssignments[tenant]
+	count(data.users[input.user.key].roleAssignments[tenant]) > 0
+	role_assignments := data.users[input.user.key].roleAssignments[tenant]
 ]

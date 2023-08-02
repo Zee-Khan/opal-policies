@@ -5,12 +5,10 @@ import future.keywords
 # Santizied query
 input_query := {
 	"action": input.action,
-	#"action": input.request.object.operation,
-	"user": {"key": "zohaib.khan@swisscom.com"},
+	"user": {"key": input.user.key},
 	"resource": {
-		"key": input.resource.key,
-		#"type": input.request.kind.kind,
-		#"tenant": "default",
+		#			"key": input.resource.key,
+		"type": input.resource.type,
 		"tenant": input.resource.tenant,
 	},
 }
@@ -59,6 +57,5 @@ grants[grant] {
 
 allowing_roles[role_key] {
 	some role_key in user_roles
-	#input.request.object.operation in data.role_permissions[roles_resource][role_key].grants[input_query.resource.type]
 	input.action in data.role_permissions[roles_resource][role_key].grants[input_query.resource.type]
 }

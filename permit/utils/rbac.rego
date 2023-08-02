@@ -4,21 +4,17 @@ import data.permit.utils
 import future.keywords.in
 
 user_roles[roleKey] {
-	some roleKey in data.users["zohaib.khan@swisscom.com"].roleAssignments["default"]
-	#some roleKey in data.users[input.user.key].roleAssignments[input.resource.tenant]
+	some roleKey in data.users[input.user.key].roleAssignments[input.resource.tenant]
 }
 
 user_tenants[tenant] {
-	some tenant in utils.object_keys(data.users["zohaib.khan@swisscom.com"].roleAssignments)
-	#some tenant in utils.object_keys(data.users[input.user.key].roleAssignments)
+	some tenant in utils.object_keys(data.users[input.user.key].roleAssignments)
 }
 
 default __user_in_tenant = false
 
 __user_in_tenant {
-	"default" in user_tenants
-	#input.resource.tenant in user_tenants
+	input.resource.tenant in user_tenants
 }
 
-user_in_tenant = user_tenants["default"]
-#user_in_tenant = user_tenants[input.resource.tenant]
+user_in_tenant = user_tenants[input.resource.tenant]
