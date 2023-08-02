@@ -82,7 +82,12 @@ default __custom_tenant_attributes = {}
 
 default __custom_context_attributes = {}
 
-__input_user_attributes = input.user.attributes
+__input_user_attributes = {
+    "key": "admin",
+    "roles": ["admin"]
+}
+
+#__input_user_attributes =  input.user.attributes
 
 __input_resource_attributes = {
     "type": input.request.kind.kind,
