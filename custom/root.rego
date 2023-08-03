@@ -7,7 +7,7 @@ import data.permit.generated.conditionset
 #default allow := true
 default allow := false
 # default deny := null
-default deny := ["No policy found. Deny All"]
+# default deny := ["No policy found. Deny All"]
 
 # You can find the official Rego tutorial at:
 # https://www.openpolicyagent.org/docs/latest/policy-language/
