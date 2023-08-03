@@ -1,10 +1,13 @@
 package permit.custom
 
+import future.keywords.in
+import data.permit.generated.conditionset
 # import data.kubernetes.admission
 
 #default allow := true
 default allow := false
-default deny := ["Deny All"]
+default deny := null
+# default deny := ["Deny All"]
 
 # You can find the official Rego tutorial at:
 # https://www.openpolicyagent.org/docs/latest/policy-language/
@@ -24,10 +27,34 @@ custom_resource_attributes := {
     "location": input.request.object.metadata.labels.location
 }
 
-custom_user_attributes := {
-    "roles": ["admin"],
-    "tenant": ["default"]
+# custom_user_attributes := {
+#     "roles": ["admin"],
+#     "tenant": ["default"]
+# }
+
+deny[msg] {
+    some key, val in conditionset
+    startswith(_set, "resourceset_")
+    not startswith(_set, "resourceset__5f_5fautogen")
+    val == false
+    msg := sprintf("Denied because of %v", [disallowed])
+    #msg := "this is from main"
+	#disallowed := {i | conditionset[i] == false}
+    #count(disallowed) > 0
+    #msg := sprintf("Denied because of %v", [disallowed])
 }
+
+# deny[msg] {
+#     some key, val in conditionset
+#     startswith(_set, "resourceset_")
+#     not startswith(_set, "resourceset__5f_5fautogen")
+#     val != true
+#     msg := "Deny all default. Policy doesn't exist for resource"
+#     #msg := "this is from main"
+# 	#disallowed := {i | conditionset[i] == false}
+#     #count(disallowed) > 0
+#     #msg := sprintf("Denied because of %v", [disallowed])
+# }
 
 
 
