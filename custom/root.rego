@@ -41,7 +41,8 @@ deny[msg] {
     #msg := "this is from main"
 	#disallowed := {i | conditionset[i] == false}
     #count(disallowed) > 0
-    msg := sprintf("Denied because of %v", [conditionset])
+    # msg := sprintf("Denied because of %v", [conditionset])
+    msg := "deny all"
 }
 
 # deny[msg] {
