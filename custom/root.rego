@@ -22,3 +22,8 @@ custom_resource_attributes := {
     "type": input.request.kind.kind,
     "location": input.request.object.metadata.labels.location
 }
+
+custom_user_attributes := {
+    "roles": ["admin"],
+    "tenant": ["default"]
+}

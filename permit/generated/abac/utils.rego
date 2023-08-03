@@ -124,7 +124,7 @@ __context_attributes = object.union(
 )
 
 attributes = {
-	# "user": __user_attributes,
+	"user": __user_attributes,
 	"resource": __resource_attributes,
 	# "tenant": __tenant_attributes,
 	# "context": __context_attributes,
