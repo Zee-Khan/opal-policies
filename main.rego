@@ -10,12 +10,6 @@ import data.permit.root
 # import data.permit.generated.conditionset
 # import data.permit.generated.abac.utils
 
-# deny[msg] {
-#     #msg := "this is from main"
-# 	disallowed := {i | conditionset[i] == false}
-#     count(disallowed) > 0
-#     msg := sprintf("Denied because of %v", [disallowed])
-# }
 
 main := {
   "apiVersion": "admission.k8s.io/v1",

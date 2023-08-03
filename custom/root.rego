@@ -4,6 +4,7 @@ package permit.custom
 
 #default allow := true
 default allow := false
+default deny := ["Deny All"]
 
 # You can find the official Rego tutorial at:
 # https://www.openpolicyagent.org/docs/latest/policy-language/
@@ -27,6 +28,8 @@ custom_user_attributes := {
     "roles": ["admin"],
     "tenant": ["default"]
 }
+
+
 
 # decode_condition_set_key(key) = value {
 # 	value := data.condition_sets[key].key

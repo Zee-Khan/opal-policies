@@ -5,7 +5,6 @@ import data.permit.debug
 import data.permit.policies
 
 default allow := false
-default deny := ["Deny All"]
 
 allow {
 	policies.allow
@@ -17,6 +16,10 @@ allow {
 
 allow {
 	custom.allow
+}
+
+deny = custom.deny {
+	custom.deny != null
 }
 
 allowing_sources := policies.__allow_sources
