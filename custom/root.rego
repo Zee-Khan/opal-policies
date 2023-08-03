@@ -27,3 +27,16 @@ custom_user_attributes := {
     "roles": ["admin"],
     "tenant": ["default"]
 }
+
+# decode_condition_set_key(key) = value {
+# 	value := data.condition_sets[key].key
+# } else = key {
+# 	true
+# }
+
+# resourcesets[set] {
+# 	some _set, _ in conditionset
+# 	startswith(_set, "resourceset_")
+# 	not startswith(_set, "resourceset__5f_5fautogen")
+# 	set := decode_condition_set_key(_set)
+# }

@@ -12,9 +12,9 @@ import data.permit.generated.conditionset
 
 deny[msg] {
     #msg := "this is from main"
-    root.allow == false
-    msg := sprintf("conditionset is %v", [conditionset])
-    #msg := sprintf("userset__5f_5fautogen_5fadmin is %v, resourceset__5f_5fautogen_5fNamespace is %v, resourceset_namespace_5flocation_5fis_5fswitzerland is %v", [conditionset.userset__5f_5fautogen_5fadmin, conditionset.resourceset__5f_5fautogen_5fNamespace, conditionset.resourceset_namespace_5flocation_5fis_5fswitzerland])
+	disallowed := {i | conditionset[i] == false}
+    count(disallowed) > 0
+    msg := sprintf("Denied because of %v", [disallowed])
 }
 
 main := {
