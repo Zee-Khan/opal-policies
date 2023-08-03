@@ -7,7 +7,7 @@ import data.permit.generated.conditionset
 #default allow := true
 default allow := false
 # default deny := null
-# default deny := ["Deny All"]
+default deny := ["No policy found. Deny All"]
 
 # You can find the official Rego tutorial at:
 # https://www.openpolicyagent.org/docs/latest/policy-language/
@@ -37,7 +37,8 @@ deny[msg] {
     startswith(key, "resourceset_")
     not startswith(key, "resourceset__5f_5fautogen")
     val == false
-    msg := sprintf("Denied because of %v", [key])
+    msg := "Permission denied (deny all). No matching policy."
+    # msg := sprintf("Denied because of %v", [key])
     #msg := "this is from main"
 	#disallowed := {i | conditionset[i] == false}
     #count(disallowed) > 0
