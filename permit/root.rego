@@ -2,7 +2,7 @@ package permit.policies
 
 import data.permit.abac
 import data.permit.rbac
-import data.permit.rebac
+# import data.permit.rebac
 
 default allow := false
 
@@ -22,10 +22,10 @@ __allow_sources["abac"] {
 	abac.allow
 }
 
-allow {
-	rebac.allow
-}
+# allow {
+# 	rebac.allow
+# }
 
-__allow_sources["rebac"] {
-	rebac.allow
-}
+# __allow_sources["rebac"] {
+# 	rebac.allow
+# }
