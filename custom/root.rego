@@ -6,7 +6,7 @@ import data.permit.generated.conditionset
 
 #default allow := true
 default allow := false
-default deny := null
+# default deny := null
 # default deny := ["Deny All"]
 
 # You can find the official Rego tutorial at:
