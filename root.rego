@@ -5,6 +5,7 @@ import data.permit.debug
 import data.permit.policies
 
 default allow := false
+default deny := ["Deny All"]
 
 allow {
 	policies.allow
