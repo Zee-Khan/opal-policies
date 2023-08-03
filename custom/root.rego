@@ -37,7 +37,7 @@ deny[msg] {
     startswith(_set, "resourceset_")
     not startswith(_set, "resourceset__5f_5fautogen")
     val == false
-    msg := sprintf("Denied because of %v", [disallowed])
+    msg := sprintf("Denied because of %v", [key])
     #msg := "this is from main"
 	#disallowed := {i | conditionset[i] == false}
     #count(disallowed) > 0
