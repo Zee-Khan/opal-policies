@@ -37,14 +37,16 @@ deny = [msg] {
     startswith(key, "resourceset_")
     not startswith(key, "resourceset__5f_5fautogen")
     val == false
-    msg := "Permission denied (deny all). No matching policy."
-    # msg := sprintf("Denied because of %v", [key])
-} else = [msg] {
-    some key, val in conditionset
-    startswith(key, "resourceset__5f_5fautogen")
-    val == false
-    msg := "Permission denied (deny all). No matching policy."
-}
+    # msg := "Permission denied (deny all). No matching policy."
+    msg := sprintf("Denied because of %v", [key])
+} 
+
+# else = [msg] {
+#     some key, val in conditionset
+#     startswith(key, "resourceset__5f_5fautogen")
+#     val == false
+#     msg := "Permission denied (deny all). No matching policy."
+# }
 
 # deny[msg] {
 #     some key, val in conditionset
