@@ -32,13 +32,18 @@ custom_resource_attributes := {
 #     "tenant": ["default"]
 # }
 
-deny[msg] {
+
+allow_resource {
     some key, val in conditionset
     startswith(key, "resourceset_")
     not startswith(key, "resourceset__5f_5fautogen")
-    val == false
-    # msg := "Permission denied (deny all). No matching policy."
-    msg := sprintf("Denied because of %v", [key])
+    val == true
+}
+
+deny[msg] {
+    allow_resource == false
+    msg := "Permission denied - No matching policy."
+    # msg := sprintf("Denied because of %v", [key])
 } 
 
 # else = [msg] {
