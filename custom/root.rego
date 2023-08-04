@@ -32,7 +32,7 @@ custom_resource_attributes := {
 #     "tenant": ["default"]
 # }
 
-deny = [msg] {
+deny[msg] {
     some key, val in conditionset
     startswith(key, "resourceset_")
     not startswith(key, "resourceset__5f_5fautogen")
