@@ -5,7 +5,7 @@ import data.permit.generated.conditionset
 # import data.kubernetes.admission
 
 #default allow := true
-default allow := false
+default allow_resource := false
 # default deny := null
 # default deny := ["No policy found. Deny All"]
 
